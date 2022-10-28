@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfTelephoneBillCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTelephoneBillCalculator"
+        mc:Ignorable="d"
+        Title="Telephone Bill Calculator" Height="200" Width="600">
+
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="CSV File:" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" x:Name="txtFileName" />
+        <Button Grid.Row="0" Grid.Column="2" Content="Browse..." Width="75" Height="30" Click="Button_Click"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Select Customer:" Grid.ColumnSpan="2" Margin="20,0,0,0"/>
+        <ComboBox Grid.Column="0" Grid.Row="1" x:Name="listOfCustomers" SelectedValue="{Binding SelectedCustomer}" Height="30" Width="120" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="10,25,0,0" />
+        <CheckBox Grid.Row="1" Grid.Column="1" Content="Split Numbers" x:Name="chbSplitNumbers" VerticalAlignment="Top" Margin="50,35,0,0"/>
+        <Button Grid.Row="2" Grid.Column="0" Content="Run" x:Name="btnRun" Width="75" Height="30" FontWeight="Bold" Click="Button_Click_1" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Grid.Column="1" Content="Please wait..." VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,150,0" Visibility="Hidden" x:Name="lblPleaseWait"/>
+        <DataGrid x:Name="gridCustomers" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="161,0,10,29" Grid.RowSpan="2" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" RenderTransformOrigin="0.5,0.5">
+        </DataGrid>
+        <Button x:Name="btnRunAll" Grid.Column="1" Grid.Row="2" Content="Run all" Height="30" Width="50" HorizontalAlignment="Left" Margin="30,0,0,0" Click="btnRunAll_Click" />
+    </Grid>
+</Window>
